@@ -1,0 +1,15 @@
+{
+  "name": "boom-shop",
+  "version": "1.0.0",
+  "description": "Product listing page application",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "product-listing-page"
+  },
+  "author": "Sashko\tMilushev",
+  "license": "MIT"
+}
