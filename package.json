@@ -11,5 +11,9 @@
     "url": "https://github.com/Sashko-Milushev/boom-shop"
   },
   "author": "Sashko\tMilushev",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "lit-html": "^2.7.5",
+    "page": "^1.11.6"
+  }
 }
