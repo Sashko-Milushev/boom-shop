@@ -13,7 +13,7 @@ page('/shoes', showShoes)
 page('/trousers', showTrousers)
 
 page.start()
-page.redirect('/')
+
 
 function decorateContext(ctx, next) {
     ctx.render = renderMain;
