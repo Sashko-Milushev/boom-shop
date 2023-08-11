@@ -1,4 +1,5 @@
 import { generateRatingStars } from "./ratingGenerator.js";
+import { showSuccessAlert } from "./cartAlert.js";
 
 export function createProductCard(product) {
     const productCard = document.createElement('div');
@@ -9,7 +10,9 @@ export function createProductCard(product) {
     const productImage = document.createElement('img');
     productImage.src = product.imageUrl;
     productImage.alt = product.name;
+
     productImage.style.width = '100%';
+
     imageContainer.appendChild(productImage);
 
     const productName = document.createElement('h3');
@@ -46,7 +49,10 @@ export function createProductCard(product) {
     const addToCartButton = document.createElement('button');
     addToCartButton.textContent = 'Add to Cart';
     addToCartButton.classList.add('add-to-cart');
-    // TODO Add event listener to handle adding the product to the cart
+
+    addToCartButton.addEventListener('click', () => {
+        showSuccessAlert(product.name);
+    });
 
     productCard.appendChild(imageContainer);
     productCard.appendChild(productName);
