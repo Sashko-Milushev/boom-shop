@@ -7,5 +7,5 @@ export function showSuccessAlert(productName) {
 
     setTimeout(() => {
         document.body.removeChild(alertContainer);
-    }, 3000); // Remove the alert after 3 seconds
+    }, 3000); 
 }

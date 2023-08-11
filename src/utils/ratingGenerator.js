@@ -1,18 +1,16 @@
 export function generateRatingStars(rating) {
-    const maxRating = 5; 
-    const starHTML = '&#9733;'; 
-    const halfStarHTML = '&#9733;&#189;';
-
+    const maxRating = 5;
     let stars = '';
+
     for (let i = 0; i < maxRating; i++) {
         if (i < rating) {
             if (i + 0.5 === rating) {
-                stars += halfStarHTML;
+                stars += '<span class="fas fa-star-half-alt"></span>';
             } else {
-                stars += starHTML; 
+                stars += '<span class="fas fa-star"></span>';
             }
         } else {
-            stars += '&#9734;'; 
+            stars += '<span class="far fa-star"></span>';
         }
     }
 

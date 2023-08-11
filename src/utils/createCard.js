@@ -42,6 +42,10 @@ export function createProductCard(product) {
     } else {
         productPrice.textContent = `$${product.price}`;
     }
+
+    const productRatingAndButton = document.createElement('div');
+    productRatingAndButton.classList.add('rating-and-button');
+
     const productRating = document.createElement('div');
     productRating.classList.add('rating');
     productRating.innerHTML = generateRatingStars(product.rating);
@@ -54,12 +58,13 @@ export function createProductCard(product) {
         showSuccessAlert(product.name);
     });
 
+    productRatingAndButton.appendChild(productRating);
+    productRatingAndButton.appendChild(addToCartButton);
     productCard.appendChild(imageContainer);
     productCard.appendChild(productName);
     productCard.appendChild(productShortDescription);
     productCard.appendChild(productPrice);
-    productCard.appendChild(productRating);
-    productCard.appendChild(addToCartButton);
+    productCard.appendChild(productRatingAndButton);    
 
     return productCard;
 }
