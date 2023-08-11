@@ -1,37 +1,34 @@
-/* Reset default margin and padding for the header */
+
 header {
     margin: 0;
     padding: 0;
 }
 
-/* Flexbox layout for the header */
+
 header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: flex;
     align-items: center;
-    /* Center items vertically */
+    
     background-color: #f8f8f8;
     padding: 10px;
 }
 
-/* Logo styling */
+
 .logo-wrap {
     max-width: 50px;
-    /* Adjust the maximum width of the logo */
     margin-right: 10px;
-    /* Add some spacing between the logo and navbar items */
 }
 
 .logo {
     width: 100%;
-    /* Make the logo responsive to its container */
     height: 150px;
-    /* Maintain the aspect ratio of the logo */
 }
 
-/* Navbar styling */
 nav {
     flex: 1;
-    /* Make the navbar take the remaining space */
 }
 
 nav ul {
@@ -40,14 +37,11 @@ nav ul {
     margin: 0;
     padding: 0;
     justify-content: space-between;
-    /* Distribute items evenly along the main axis */
 }
 
 nav li {
     flex: 1;
-    /* Make each item take up the remaining space equally */
     text-align: center;
-    /* Center the text within each list item */
 }
 
 nav a {
@@ -57,22 +51,17 @@ nav a {
     font-size: 28px;
 }
 
-/* Add hover effect for the navbar items */
 nav a:hover {
     color: #3498db;
 }
 
-/* Adjust spacing for smaller screens */
 @media screen and (max-width: 768px) {
     nav ul {
         flex-direction: column;
-        /* Stack navbar items vertically */
     }
 
     nav li {
         flex: 0;
-        /* Reset the flex property for stacked items */
         margin-bottom: 10px;
-        /* Add spacing between stacked items */
     }
 }

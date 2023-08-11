@@ -11,15 +11,16 @@ export function showHoodies(ctx) {
         <div class="filter-and-sort">
             <div class="filter-section">
                 <h3>Filter by Price</h3>
-                <input type="range" name="price" min="0" max="100" value="100">
+                <input id="input-range" type="range" name="price" min="0" max="100" value="100">
                 <span class="price-range-label">$0 - $100</span>
             </div>
             <div class="filter-section">
                 <h3>Filter by Rating</h3>
-                <input type="range" name="rating" min="0" max="5" step="0.1" value="0">
+                <input id="input-range" type="range" name="rating" min="0" max="5" step="0.1" value="0">
                 <span class="rating-range-label">0 - 5</span>
             </div>
         </div>
+        <p class="product-counter">0 out of 0 products</p>
         <div class="product-grid">
           <!-- Product cards will be added here -->
         </div>
@@ -34,13 +35,15 @@ export function showHoodies(ctx) {
 
 async function fetchAndRenderHoodiesProducts(container, ctx) {
     const hoodiesData = await fetchDataForCategory('hoodies');
-
     const productGrid = container.querySelector('.product-grid');
+    const productCounter = container.querySelector('.product-counter');
+
     hoodiesData.forEach(product => {
         const productCard = createProductCard(product);
         productGrid.appendChild(productCard);
     });
 
+    productCounter.textContent = `${hoodiesData.length} out of ${hoodiesData.length} products`;
     setupFilters(hoodiesData, container, ctx, productGrid);
     ctx.render(container); 
 }

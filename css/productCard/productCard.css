@@ -61,7 +61,7 @@
 
 
 .product-card button {
-    background-color: #3498db;
+    background-color: #833ea4;
     color: #fff;
     border: none;
     padding: 8px 16px;
@@ -71,8 +71,24 @@
 }
 
 .product-card button:hover {
-    background-color: #2980b9;
+    background-color: #66148d;
 }
+
+.category-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.category-description {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #888;
+}
+
 
 .filter-and-sort {
     display: flex;
@@ -84,6 +100,7 @@
 
 .filter-section {
     margin-right: 20px;
+
 }
 
 .price-range-label {
@@ -107,11 +124,12 @@
 
 .rating-and-button {
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    margin-top: 10px; 
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
 }
 
 .rating {
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
 }
+
