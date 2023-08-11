@@ -1,18 +1,18 @@
 export function generateRatingStars(rating) {
-    const maxRating = 5; // Assuming the maximum rating is 5
-    const starHTML = '&#9733;'; // Unicode character for a star
-    const halfStarHTML = '&#9733;&#189;'; // Unicode character for half-filled star
+    const maxRating = 5; 
+    const starHTML = '&#9733;'; 
+    const halfStarHTML = '&#9733;&#189;';
 
     let stars = '';
     for (let i = 0; i < maxRating; i++) {
         if (i < rating) {
             if (i + 0.5 === rating) {
-                stars += halfStarHTML; // Add half-filled star for decimal ratings
+                stars += halfStarHTML;
             } else {
-                stars += starHTML; // Add filled star for whole ratings
+                stars += starHTML; 
             }
         } else {
-            stars += '&#9734;'; // Add empty star for ratings below i
+            stars += '&#9734;'; 
         }
     }
 

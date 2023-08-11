@@ -20,6 +20,36 @@
       "imageUrl": "https://m.media-amazon.com/images/I/B1i3u9-Q-KS._AC_CLa%7C2140%2C2000%7CB1kbGsTFh%2BS.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_UY1000_.png",
       "price": 44.99,
       "rating": 4.8
+    },
+    {
+      "name": "Light Hoodie",
+      "shortDescription": "A light hoodie for warmer days",
+      "imageUrl": "https://a.storyblok.com/f/165154/1500x700/145518c1c7/10_retro-designs.jpg/m/",
+      "price": 29.99,
+      "discountedPrice": 19.99,
+      "rating": 4.0
+    },
+    {
+      "name": "Extra warm Hoodie",
+      "shortDescription": "A extra warm hooide for cold days",
+      "imageUrl": "https://i.etsystatic.com/40109783/r/il/1eba73/4757704770/il_570xN.4757704770_21hg.jpg",
+      "price": 38.99,
+      "rating": 4.0
+    },
+    {
+      "name": "Old school Hoodie",
+      "shortDescription": "A stylish and comfortable hoodie",
+      "imageUrl": "https://a.storyblok.com/f/165154/1500x700/145518c1c7/10_retro-designs.jpg/m/",
+      "price": 39.99,
+      "discountedPrice": 29.99,
+      "rating": 4.5
+    },
+    {
+      "name": "Camo hoodie",
+      "shortDescription": "A classic camo hoodie",
+      "imageUrl": "https://i.etsystatic.com/40109783/r/il/1eba73/4757704770/il_570xN.4757704770_21hg.jpg",
+      "price": 37.99,
+      "rating": 4.0
     }
   ]
   

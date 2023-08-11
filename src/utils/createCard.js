@@ -32,12 +32,11 @@ export function createProductCard(product) {
         discountedPrice.textContent = `$${product.discountedPrice}`;
 
         productPrice.appendChild(discountedPrice);
-        productPrice.appendChild(document.createTextNode(' ')); // Add some space between prices
+        productPrice.appendChild(document.createTextNode(' '));
         productPrice.appendChild(regularPrice);
 
 
     } else {
-        // Display regular price only if there is no discounted price
         productPrice.textContent = `$${product.price}`;
     }
     const productRating = document.createElement('div');
