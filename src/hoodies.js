@@ -7,6 +7,7 @@ import { loadMoreProducts } from './utils/loadMoreFunctionality.js'
 const productsPerPage = 5;
 let currentDisplayedProducts = 0
 let total_products = 0
+let rendered_products = []
 
 
 
@@ -54,6 +55,7 @@ async function fetchAndRenderHoodiesProducts(container, ctx) {
     const loadMoreButton = container.querySelector('.load-more-button');
     let displayedProducts = loadMoreProducts(hoodiesData, productGrid, productCounter, currentDisplayedProducts, productsPerPage);
     currentDisplayedProducts += displayedProducts;
+    rendered_products = hoodiesData.slice(0, currentDisplayedProducts)
 
     loadMoreButton.addEventListener('click', () => {
         displayedProducts = loadMoreProducts(
@@ -63,19 +65,23 @@ async function fetchAndRenderHoodiesProducts(container, ctx) {
             currentDisplayedProducts,
             productsPerPage
         );
-        currentDisplayedProducts += displayedProducts
-
+        
+        currentDisplayedProducts = displayedProducts
+        
         if (currentDisplayedProducts >= hoodiesData.length) {
             loadMoreButton.style.display = 'none';
         }
+
+        rendered_products = hoodiesData.slice(0, currentDisplayedProducts)
+        setupFilters(rendered_products, container, ctx, productGrid, currentDisplayedProducts, productCounter, total_products);
     });
 
-    let rendered_products = hoodiesData.slice(0, currentDisplayedProducts)
+    rendered_products = hoodiesData.slice(0, currentDisplayedProducts)
     setupFilters(rendered_products, container, ctx, productGrid, currentDisplayedProducts, productCounter, total_products);
     ctx.render(container);
 }
 
-function setupFilters(products, container, ctx, productGrid, currentDisplayedProducts, productCounter) {
+function setupFilters(products, container, ctx, productGrid, currentDisplayedProducts, productCounter, total_products) {
     const priceInput = container.querySelector('input[name="price"]');
     const priceRangeLabel = container.querySelector('.price-range-label');
     const ratingInput = container.querySelector('input[name="rating"]');
@@ -84,18 +90,18 @@ function setupFilters(products, container, ctx, productGrid, currentDisplayedPro
 
     priceInput.addEventListener('input', () => {
         priceRangeLabel.textContent = `$0 - $${priceInput.value}`;
-        applyFiltersAndRender(container, products, parseFloat(priceInput.value), parseFloat(ratingInput.value), productCounter, currentDisplayedProducts);
+        applyFiltersAndRender(container, products, parseFloat(priceInput.value), parseFloat(ratingInput.value), productCounter, currentDisplayedProducts, total_products);
     });
 
     ratingInput.addEventListener('input', () => {
         ratingRangeLabel.textContent = `Rating: ${ratingInput.value}`;
-        applyFiltersAndRender(container, products, parseFloat(priceInput.value), parseFloat(ratingInput.value), productCounter, currentDisplayedProducts);
+        applyFiltersAndRender(container, products, parseFloat(priceInput.value), parseFloat(ratingInput.value), productCounter, currentDisplayedProducts, total_products);
     });
 }
 
 
-function applyFiltersAndRender(container, products, priceRange, ratingRange, productCounter, currentDisplayedProducts) {
-    const filteredProducts = applyFilters(products, priceRange, ratingRange);
+function applyFiltersAndRender(container, products, priceRange, ratingRange, productCounter, currentDisplayedProducts, total_products) {
+    const filteredProducts = applyFilters(rendered_products, priceRange, ratingRange);
 
     const productGrid = container.querySelector('.product-grid');
     productGrid.innerHTML = '';
