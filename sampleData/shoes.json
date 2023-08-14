@@ -1,0 +1,56 @@
+[
+    {
+      "name": "Casual shoes",
+      "shortDescription": "A stylish and comfortable shoes",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToX8p30vc3UT38DwYU_NwGbl0eql6iHFlU_g&usqp=CAU",
+      "price": 39.99,
+      "discountedPrice": 29.99,
+      "rating": 4.5
+    },
+    {
+      "name": "Classic shoes",
+      "shortDescription": "A classic and versatile shoes",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJfz7Xpz287Adc1016u-MXc6KtniztXQz5_A&usqp=CAU",
+      "price": 34.99,
+      "rating": 4.0
+    },
+    {
+      "name": "Sporty shoes",
+      "shortDescription": "A sporty shoes for active days",
+      "imageUrl": "https://images.meesho.com/images/products/276746930/yjuqq_512.webp",
+      "price": 44.99,
+      "rating": 4.8
+    },
+    {
+      "name": "Light shoes",
+      "shortDescription": "A light shoes for warmer days",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT482px2Pd4WiJWA_rX3Cv1B8gvOUztZfCCVQ&usqp=CAU",
+      "price": 29.99,
+      "discountedPrice": 19.99,
+      "rating": 4.0
+    },
+    {
+      "name": "Extra warm shoes",
+      "shortDescription": "A extra warm shoes for cold days",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdwaq1f2EwxVsXjDHu5N0EE8IYrWowfCfN5w&usqp=CAU",
+      "price": 38.99,
+      "rating": 4.0
+    },
+    {
+      "name": "Old school shoes",
+      "shortDescription": "A stylish and comfortable shoes",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKdCiiUJI82K0S8_752igQZg1akemZ8fHHLg&usqp=CAU",
+      "price": 39.99,
+      "discountedPrice": 29.99,
+      "rating": 3.5
+    },
+    {
+      "name": "Classic sporty Shoes",
+      "shortDescription": "A classic everyday shoes",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLvDiKFP12-kyEnLEjj_3Fnv4wjETtvVTxQ4DBYMzGIxnscQH1C0AhssWq8AWMwPnWC8s&usqp=CAU",
+      "price": 37.99,
+      "rating": 4.0
+    }
+  ]
+  
+  

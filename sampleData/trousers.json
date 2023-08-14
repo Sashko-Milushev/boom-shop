@@ -1,0 +1,56 @@
+[
+    {
+      "name": "Casual multipocket pants",
+      "shortDescription": "A casual and comfortable outdoor pants",
+      "imageUrl": "https://i5.walmartimages.com/asr/1188d99e-3e8d-4306-9652-3bed81e72685.29fc7fba7c529582a9906e0ef7db4493.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
+      "price": 39.99,
+      "discountedPrice": 29.99,
+      "rating": 4.5
+    },
+    {
+      "name": "Casual loose sport pants",
+      "shortDescription": "A classic comfy sport pants",
+      "imageUrl": "https://i.ebayimg.com/images/g/2J4AAOSwDw9bM03b/s-l1600.jpg",
+      "price": 34.99,
+      "rating": 4.0
+    },
+    {
+      "name": "Jeans pants",
+      "shortDescription": "New arrival jeans pants",
+      "imageUrl": "https://lzd-img-global.slatic.net/g/p/4a7f47802aad61a1442aa9f6cf987d01.jpg_720x720q80.jpg",
+      "price": 44.99,
+      "rating": 4.8
+    },
+    {
+      "name": "Casual trausers",
+      "shortDescription": "A light and modern pants",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFfeKoy8mk0qDSEEoz2AwFIGXzD_c_opPtKw&usqp=CAU",
+      "price": 29.99,
+      "discountedPrice": 19.99,
+      "rating": 4.0
+    },
+    {
+      "name": "Camo pants",
+      "shortDescription": "A stylish camo trausers",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfShqOhvlM2HwN0cNef4zpPN_ujtLboXxbvA&usqp=CAU",
+      "price": 38.99,
+      "rating": 4.0
+    },
+    {
+      "name": "Casual trim fit pants",
+      "shortDescription": "A light and modern pants",
+      "imageUrl": "https://m.media-amazon.com/images/I/41PxceeaIEL._AC_UY1100_.jpg",
+      "price": 39.99,
+      "discountedPrice": 29.99,
+      "rating": 3.5
+    },
+    {
+      "name": "Camo sweatpants",
+      "shortDescription": "A classic camo sweatpants",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0mwm_AijyoUUFSFtOs-YpcZj5xLCFdAegAg&usqp=CAU",
+      "price": 37.99,
+      "rating": 4.0
+    }
+  ]
+  
+  

@@ -23,4 +23,6 @@ function decorateContext(ctx, next) {
 
 function renderMain(templateResult) {
     render(templateResult, main)
+    window.scrollTo(0, 0);
 }
+
