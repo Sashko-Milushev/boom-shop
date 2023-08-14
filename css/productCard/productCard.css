@@ -1,3 +1,13 @@
+@media (max-width: 768px) {
+    .filter-and-sort {
+        display: none;
+    }
+
+    .filter-and-sort-mobile {
+        display: flex;
+    }
+}
+
 .image-container {
     max-width: 300px;
     margin: 0 auto;
@@ -12,6 +22,58 @@
     align-items: center;
     text-align: center;
     transition: transform 0.2s ease-in-out;
+}
+
+.category-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.category-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+
+.filter-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.sorting {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.sorting h3 {
+    margin-right: 10px;
+}
+
+.product-grid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.product-counter {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #888;
 }
 
 .product-card:hover {
@@ -85,23 +147,50 @@
 .category-description {
     text-align: center;
     font-size: 1rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: #888;
 }
 
-
-.filter-and-sort {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    padding: 10px;
-    border-top: 1px solid #ccc;
+.filters {
+    position: absolute;
+    left: 10px;
+    top: 230px;
+    width: 130px;
+    
 }
 
 .filter-section {
-    margin-right: 20px;
-
+    margin-bottom: 20px;
 }
+
+.sort {
+    margin-bottom: 10px;
+   
+}
+
+.sorting select {
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid #833ea4;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.sorting select:hover {
+    border-color: #66148d;
+}
+
+
+
+.sorting select:focus {
+    outline: none;
+    border-color: #66148d;
+    box-shadow: 0 0 0 2px rgba(200, 159, 230, 0.3);
+}
+
 
 .price-range-label {
     display: block;
@@ -133,3 +222,18 @@
     margin-bottom: 5px;
 }
 
+.load-more-button {
+    align-self: center;
+    background-color: #833ea4;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin: 10px;
+}
+
+.load-more-button:hover {
+    background-color: #66148d;
+}

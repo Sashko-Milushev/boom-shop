@@ -4,6 +4,9 @@ header {
     padding: 0;
 }
 
+body {
+    margin: 0;
+}
 
 header {
     position: sticky;
@@ -11,9 +14,9 @@ header {
     z-index: 100;
     display: flex;
     align-items: center;
-    
+    width: 100%;
     background-color: #f8f8f8;
-    padding: 10px;
+
 }
 
 

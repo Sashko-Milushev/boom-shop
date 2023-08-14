@@ -4,7 +4,7 @@ import { fetchDataForCategory } from './utils/fetchData.js';
 import { applyFilters } from './utils/filterData.js';
 import { loadMoreProducts } from './utils/loadMoreFunctionality.js'
 
-const productsPerPage = 5;
+const productsPerPage = 4;
 let currentDisplayedProducts = 0
 let total_products = 0
 let rendered_products = []
@@ -14,27 +14,40 @@ let rendered_products = []
 export function showHoodies(ctx) {
 
     const content = html`
-      <section class="product-category">
+    <section class="product-category">
+    <div class="category-header">
         <h2 class="category-title">Hoodies</h2>
         <p class="category-description">Discover our latest collection of stylish hoodies.</p>
-        <div class="filter-and-sort">
-            <div class="filter-section">
-                <h3>Filter by Price</h3>
-                <input id="input-range" type="range" name="price" min="0" max="100" value="100">
-                <span class="price-range-label">$0 - $100</span>
-            </div>
-            <div class="filter-section">
-                <h3>Filter by Rating</h3>
-                <input id="input-range" type="range" name="rating" min="0" max="5" step="0.1" value="0">
-                <span class="rating-range-label">0 - 5</span>
-            </div>
+        <div class="product-counter">0 out of 0 products</div>
+        <div class="sorting">
+            <h3>Sort by</h3>
+            <select id="sorting-dropdown">
+                <option value="price">Price</option>
+                <option value="rating">Rating</option>
+                <!-- Add more sorting options if needed -->
+            </select>
         </div>
-        <p class="product-counter">0 out of 0 products</p>
-        <div class="product-grid">
-          <!-- Product cards will be added here -->
+    </div>
+    
+    <div class="filters">
+        <div class="filter-section">
+            <h3>Filter by Price</h3>
+            <input id="input-range" type="range" name="price" min="0" max="100" value="100">
+            <span class="price-range-label">$0 - $100</span>
         </div>
-        <button class="load-more-button">Load more</button>
-      </section>
+        <div class="filter-section">
+            <h3>Filter by Rating</h3>
+            <input id="input-range" type="range" name="rating" min="0" max="5" step="0.1" value="0">
+            <span class="rating-range-label">0 - 5</span>
+        </div>
+    </div>
+    <div class="product-grid">
+        <!-- Product cards will be added here -->
+    </div>
+    <button class="load-more-button">Load more</button>
+</section>
+
+
     `;
 
     const container = document.createElement('div');
@@ -65,9 +78,9 @@ async function fetchAndRenderHoodiesProducts(container, ctx) {
             currentDisplayedProducts,
             productsPerPage
         );
-        
+
         currentDisplayedProducts = displayedProducts
-        
+
         if (currentDisplayedProducts >= hoodiesData.length) {
             loadMoreButton.style.display = 'none';
         }
@@ -86,7 +99,7 @@ function setupFilters(products, container, ctx, productGrid, currentDisplayedPro
     const priceRangeLabel = container.querySelector('.price-range-label');
     const ratingInput = container.querySelector('input[name="rating"]');
     const ratingRangeLabel = container.querySelector('.rating-range-label');
-    
+
 
     priceInput.addEventListener('input', () => {
         priceRangeLabel.textContent = `$0 - $${priceInput.value}`;
