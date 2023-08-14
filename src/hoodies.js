@@ -2,7 +2,8 @@ import { html, render } from './lib.js';
 import { createProductCard } from './utils/createCard.js';
 import { fetchDataForCategory } from './utils/fetchData.js';
 import { applyFilters } from './utils/filterData.js';
-import { loadMoreProducts } from './utils/loadMoreFunctionality.js'
+import { loadMoreProducts } from './utils/loadMoreFunctionality.js';
+import { sortByPriceAsc, sortByPriceDesc, sortByRatingAsc, sortByRatingDesc } from './utils/sorting.js';
 
 const productsPerPage = 4;
 let currentDisplayedProducts = 0
@@ -22,9 +23,10 @@ export function showHoodies(ctx) {
         <div class="sorting">
             <h3>Sort by</h3>
             <select id="sorting-dropdown">
-                <option value="price">Price</option>
-                <option value="rating">Rating</option>
-                <!-- Add more sorting options if needed -->
+                <option value="price-asc">Price asc.</option>
+                <option value="price-desc">Price desc.</option>
+                <option value="rating-asc">Rating asc.</option>
+                <option value="rating-desc">Rating desc.</option>
             </select>
         </div>
     </div>
@@ -64,6 +66,7 @@ async function fetchAndRenderHoodiesProducts(container, ctx) {
 
     const productGrid = container.querySelector('.product-grid');
     const productCounter = container.querySelector('.product-counter');
+    const sortingDropdown = container.querySelector('#sorting-dropdown');
 
     const loadMoreButton = container.querySelector('.load-more-button');
     let displayedProducts = loadMoreProducts(hoodiesData, productGrid, productCounter, currentDisplayedProducts, productsPerPage);
@@ -91,7 +94,32 @@ async function fetchAndRenderHoodiesProducts(container, ctx) {
 
     rendered_products = hoodiesData.slice(0, currentDisplayedProducts)
     setupFilters(rendered_products, container, ctx, productGrid, currentDisplayedProducts, productCounter, total_products);
+    applySortingAndRender(container, rendered_products, sortingDropdown.value, productGrid, productCounter, currentDisplayedProducts, total_products);
+    
+    sortingDropdown.addEventListener('change', () => {
+        applySortingAndRender(container, rendered_products, sortingDropdown.value, productGrid, productCounter, currentDisplayedProducts, total_products);
+    });
     ctx.render(container);
+
+}
+
+function applySortingAndRender(container, products, sortingOption, productGrid, productCounter, currentDisplayedProducts, total_products) {
+    const priceInput = container.querySelector('input[name="price"]');
+    const priceRangeLabel = container.querySelector('.price-range-label');
+    const ratingInput = container.querySelector('input[name="rating"]');
+    const ratingRangeLabel = container.querySelector('.rating-range-label')
+    
+    if (sortingOption === 'price-asc') {
+        sortByPriceAsc(products);
+    } else if (sortingOption === 'price-desc') {
+        sortByPriceDesc(products);
+    } else if (sortingOption === 'rating-asc') {
+        sortByRatingAsc(products);
+    } else if (sortingOption === 'rating-desc') {
+        sortByRatingDesc(products);
+    }
+
+    applyFiltersAndRender(container, products, parseFloat(priceInput.value), parseFloat(ratingInput.value), productCounter, currentDisplayedProducts, total_products);
 }
 
 function setupFilters(products, container, ctx, productGrid, currentDisplayedProducts, productCounter, total_products) {
