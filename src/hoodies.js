@@ -3,7 +3,7 @@ import { createProductCard } from './utils/createCard.js';
 import { fetchDataForCategory } from './utils/fetchData.js';
 import { applyFilters } from './utils/filterData.js';
 import { loadMoreProducts } from './utils/loadMoreFunctionality.js';
-import { sortByPriceAsc, sortByPriceDesc, sortByRatingAsc, sortByRatingDesc } from './utils/sorting.js';
+import { sortByPriceAsc, sortByPriceDesc, sortByRatingAsc, sortByRatingDesc, sortByNameAsc, sortByNameDesc } from './utils/sorting.js';
 
 const productsPerPage = 4;
 let currentDisplayedProducts = 0
@@ -27,6 +27,8 @@ export function showHoodies(ctx) {
                 <option value="price-desc">Price desc.</option>
                 <option value="rating-asc">Rating asc.</option>
                 <option value="rating-desc">Rating desc.</option>
+                <option value="name-asc">Name asc.</option>
+                <option value="name-desc">Name desc.</option>
             </select>
         </div>
     </div>
@@ -95,7 +97,7 @@ async function fetchAndRenderHoodiesProducts(container, ctx) {
     rendered_products = hoodiesData.slice(0, currentDisplayedProducts)
     setupFilters(rendered_products, container, ctx, productGrid, currentDisplayedProducts, productCounter, total_products);
     applySortingAndRender(container, rendered_products, sortingDropdown.value, productGrid, productCounter, currentDisplayedProducts, total_products);
-    
+
     sortingDropdown.addEventListener('change', () => {
         applySortingAndRender(container, rendered_products, sortingDropdown.value, productGrid, productCounter, currentDisplayedProducts, total_products);
     });
@@ -108,7 +110,7 @@ function applySortingAndRender(container, products, sortingOption, productGrid, 
     const priceRangeLabel = container.querySelector('.price-range-label');
     const ratingInput = container.querySelector('input[name="rating"]');
     const ratingRangeLabel = container.querySelector('.rating-range-label')
-    
+
     if (sortingOption === 'price-asc') {
         sortByPriceAsc(products);
     } else if (sortingOption === 'price-desc') {
@@ -117,6 +119,10 @@ function applySortingAndRender(container, products, sortingOption, productGrid, 
         sortByRatingAsc(products);
     } else if (sortingOption === 'rating-desc') {
         sortByRatingDesc(products);
+    } else if (sortingOption === 'name-asc') {
+        sortByNameAsc(products);
+    } else if (sortingOption === 'name-desc') {
+        sortByNameDesc(products);
     }
 
     applyFiltersAndRender(container, products, parseFloat(priceInput.value), parseFloat(ratingInput.value), productCounter, currentDisplayedProducts, total_products);

@@ -24,3 +24,10 @@ export function sortByRatingAsc(products) {
 export function sortByRatingDesc(products) {
     products.sort((a, b) => b.rating - a.rating);
 }
+export function sortByNameAsc(products) {
+    products.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export function sortByNameDesc(products) {
+    products.sort((a, b) => b.name.localeCompare(a.name));
+}
