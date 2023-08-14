@@ -49,7 +49,7 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: #66148d;
+    color: #66148d !important;
     font-family: 'Pacifico', sans-serif;
     font-size: 28px;
 }
