@@ -1,15 +1,9 @@
 import { html, render } from './lib.js';
-import { createProductCard } from './utils/createCard.js';
-import { fetchDataForCategory } from './utils/fetchData.js';
-import { applyFilters } from './utils/filterData.js';
-import { loadMoreProducts } from './utils/loadMoreFunctionality.js';
-import { sortByPriceAsc, sortByPriceDesc, sortByRatingAsc, sortByRatingDesc, sortByNameAsc, sortByNameDesc } from './utils/sorting.js';
+import { fetchAndRenderProducts } from './globalUtils/fetchAndRender.js';
 
 const productsPerPage = 4;
-let currentDisplayedProducts = 0
-let total_products = 0
-let rendered_products = []
-
+let currentDisplayedProducts = 0;
+const category = 'hoodies';
 
 
 export function showHoodies(ctx) {
@@ -57,105 +51,6 @@ export function showHoodies(ctx) {
     const container = document.createElement('div');
     render(content, container);
 
-    fetchAndRenderHoodiesProducts(container, ctx);
+    fetchAndRenderProducts(container, ctx, category, currentDisplayedProducts, productsPerPage);
 
-}
-
-async function fetchAndRenderHoodiesProducts(container, ctx) {
-    const hoodiesData = await fetchDataForCategory('hoodies');
-
-    total_products = hoodiesData.length;
-
-    const productGrid = container.querySelector('.product-grid');
-    const productCounter = container.querySelector('.product-counter');
-    const sortingDropdown = container.querySelector('#sorting-dropdown');
-
-    const loadMoreButton = container.querySelector('.load-more-button');
-    let displayedProducts = loadMoreProducts(hoodiesData, productGrid, productCounter, currentDisplayedProducts, productsPerPage);
-    currentDisplayedProducts += displayedProducts;
-    rendered_products = hoodiesData.slice(0, currentDisplayedProducts)
-
-    loadMoreButton.addEventListener('click', () => {
-        displayedProducts = loadMoreProducts(
-            hoodiesData,
-            productGrid,
-            productCounter,
-            currentDisplayedProducts,
-            productsPerPage
-        );
-
-        currentDisplayedProducts = displayedProducts
-
-        if (currentDisplayedProducts >= hoodiesData.length) {
-            loadMoreButton.style.display = 'none';
-        }
-
-        rendered_products = hoodiesData.slice(0, currentDisplayedProducts)
-        setupFilters(rendered_products, container, ctx, productGrid, currentDisplayedProducts, productCounter, total_products);
-    });
-
-    rendered_products = hoodiesData.slice(0, currentDisplayedProducts)
-    setupFilters(rendered_products, container, ctx, productGrid, currentDisplayedProducts, productCounter, total_products);
-    applySortingAndRender(container, rendered_products, sortingDropdown.value, productGrid, productCounter, currentDisplayedProducts, total_products);
-
-    sortingDropdown.addEventListener('change', () => {
-        applySortingAndRender(container, rendered_products, sortingDropdown.value, productGrid, productCounter, currentDisplayedProducts, total_products);
-    });
-    ctx.render(container);
-
-}
-
-function applySortingAndRender(container, products, sortingOption, productGrid, productCounter, currentDisplayedProducts, total_products) {
-    const priceInput = container.querySelector('input[name="price"]');
-    const priceRangeLabel = container.querySelector('.price-range-label');
-    const ratingInput = container.querySelector('input[name="rating"]');
-    const ratingRangeLabel = container.querySelector('.rating-range-label')
-
-    if (sortingOption === 'price-asc') {
-        sortByPriceAsc(products);
-    } else if (sortingOption === 'price-desc') {
-        sortByPriceDesc(products);
-    } else if (sortingOption === 'rating-asc') {
-        sortByRatingAsc(products);
-    } else if (sortingOption === 'rating-desc') {
-        sortByRatingDesc(products);
-    } else if (sortingOption === 'name-asc') {
-        sortByNameAsc(products);
-    } else if (sortingOption === 'name-desc') {
-        sortByNameDesc(products);
-    }
-
-    applyFiltersAndRender(container, products, parseFloat(priceInput.value), parseFloat(ratingInput.value), productCounter, currentDisplayedProducts, total_products);
-}
-
-function setupFilters(products, container, ctx, productGrid, currentDisplayedProducts, productCounter, total_products) {
-    const priceInput = container.querySelector('input[name="price"]');
-    const priceRangeLabel = container.querySelector('.price-range-label');
-    const ratingInput = container.querySelector('input[name="rating"]');
-    const ratingRangeLabel = container.querySelector('.rating-range-label');
-
-
-    priceInput.addEventListener('input', () => {
-        priceRangeLabel.textContent = `$0 - $${priceInput.value}`;
-        applyFiltersAndRender(container, products, parseFloat(priceInput.value), parseFloat(ratingInput.value), productCounter, currentDisplayedProducts, total_products);
-    });
-
-    ratingInput.addEventListener('input', () => {
-        ratingRangeLabel.textContent = `Rating: ${ratingInput.value}`;
-        applyFiltersAndRender(container, products, parseFloat(priceInput.value), parseFloat(ratingInput.value), productCounter, currentDisplayedProducts, total_products);
-    });
-}
-
-
-function applyFiltersAndRender(container, products, priceRange, ratingRange, productCounter, currentDisplayedProducts, total_products) {
-    const filteredProducts = applyFilters(rendered_products, priceRange, ratingRange);
-
-    const productGrid = container.querySelector('.product-grid');
-    productGrid.innerHTML = '';
-    filteredProducts.forEach(product => {
-        const productCard = createProductCard(product);
-        productGrid.appendChild(productCard);
-    });
-    const displayedProductsCount = Math.min(currentDisplayedProducts, filteredProducts.length);
-    productCounter.textContent = `${displayedProductsCount} out of ${total_products} products`;
 }
