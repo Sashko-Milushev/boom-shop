@@ -24,6 +24,21 @@
     transition: transform 0.2s ease-in-out;
 }
 
+.image-container {
+    width: 100%;
+    padding-top: 100%; 
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .category-header {
     text-align: center;
     margin-bottom: 20px;
@@ -156,7 +171,7 @@
     left: 10px;
     top: 230px;
     width: 130px;
-    
+
 }
 
 .filter-section {
@@ -165,7 +180,7 @@
 
 .sort {
     margin-bottom: 10px;
-   
+
 }
 
 .sorting select {

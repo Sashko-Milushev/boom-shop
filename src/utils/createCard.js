@@ -11,8 +11,6 @@ export function createProductCard(product) {
     productImage.src = product.imageUrl;
     productImage.alt = product.name;
 
-    productImage.style.width = '100%';
-
     imageContainer.appendChild(productImage);
 
     const productName = document.createElement('h3');
@@ -37,8 +35,6 @@ export function createProductCard(product) {
         productPrice.appendChild(discountedPrice);
         productPrice.appendChild(document.createTextNode(' '));
         productPrice.appendChild(regularPrice);
-
-
     } else {
         productPrice.textContent = `$${product.price}`;
     }
@@ -64,7 +60,8 @@ export function createProductCard(product) {
     productCard.appendChild(productName);
     productCard.appendChild(productShortDescription);
     productCard.appendChild(productPrice);
-    productCard.appendChild(productRatingAndButton);    
+    productCard.appendChild(productRatingAndButton);
 
     return productCard;
 }
+
