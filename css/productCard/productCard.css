@@ -18,10 +18,14 @@
     border-radius: 8px;
     padding: 16px;
     display: flex;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     flex-direction: column;
     align-items: center;
     text-align: center;
     transition: transform 0.2s ease-in-out;
+    width: 300px; 
+    max-width: 100%;
+    margin: 10px;
 }
 
 .image-container {
