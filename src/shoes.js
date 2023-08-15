@@ -1,13 +1,20 @@
+// Import necessary functions
 import { html, render } from './lib.js';
 import { fetchAndRenderProducts } from './globalUtils/fetchAndRender.js';
 
+// Number of products to display per page
 const productsPerPage = 4;
+
+// Keep track of currently displayed products
 let currentDisplayedProducts = 0;
+
+// Define the category for this page
 const category = 'shoes';
 
-
+// Define the function to show the Shoes category page
 export function showShoes(ctx) {
 
+    // Define the HTML content for the Shoes category page
     const content = html`
     <section class="product-category">
     <div class="category-header">
@@ -44,13 +51,14 @@ export function showShoes(ctx) {
     </div>
     <button class="load-more-button">Load more</button>
 </section>
-
-
     `;
 
+    // Create a container to render the content
     const container = document.createElement('div');
+
+    // Render the content in the container
     render(content, container);
 
+    // Fetch and render products for the Shoes category
     fetchAndRenderProducts(container, ctx, category, currentDisplayedProducts, productsPerPage);
-
 }
