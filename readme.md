@@ -50,5 +50,8 @@ Boom-Shop is a web application that allows users to explore and purchase various
 - '/css': Contains stylesheets
 - '/sampleData': Contains data for rendering the project
 
+## Contributing
+Contributions are welcome! If you'd like to contribute to Boom-Shop, feel free to fork this repository, create a feature branch, and submit a pull request. Ensure your code follows the existing coding style and includes appropriate documentation.
+
 ## License
 This project is licensed under the MIT License.
